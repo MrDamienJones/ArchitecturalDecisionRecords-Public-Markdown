@@ -29,12 +29,15 @@ Data & Analytics
 <br>
 
 ## Dates
+2023-01-12: Minor changes to wording.
+
 2023-01-11: Status = Live.
+
 2023-01-06: Status = Dev.
 
 ---
 ## Context
-Most of my ETLs have been done as a single Python script.  These can end up being hundreds of lines long, obfuscates what is being done and can be difficult to review, troubleshoot and maintain.
+Most of my ETLs to date have been written as a single Python script.  These can end up being hundreds of lines long, which hides what is being done and can be difficult to review, troubleshoot and maintain.
 
 <br>
 
@@ -44,18 +47,18 @@ The Medallion Architecture is being adopted for all future data pipelines.  It i
 ---
 ## Compliance
 
-- Each layer of the Medallion Architecture will need a separate script creating.
-- The aim of each script is to produce a Parquet object that will be written to the corresponding S3 bucket.
+- Each layer of the Medallion Architecture will have a separate script produced for it.
+- The aim of each script is to read data from an agreed location and produce a Parquet object that will be written to the corresponding S3 bucket.
 
-> Raw scripts must write to Raw S3 buckets.
+> Raw scripts read from dynamic data sources and must **write** to Raw S3 buckets.
 
-> Bronze scripts must write to Bronze S3 buckets.
+> Bronze scripts must **read** from Raw S3 buckets and **write** to Bronze S3 buckets.
 
-> Silver scripts must write to Silver S3 buckets.
+> Silver scripts must **read** from Bronze S3 buckets and **write** to Silver S3 buckets.
 
-> Gold scripts must write to Gold S3 buckets.
+> Gold scripts must **read** from Silver S3 buckets and **write** to Gold S3 buckets.
 
-- Any secrets or credentials must excluded from any GitHub repo.
+- Any secrets or credentials must excluded from GitHub repos.
 - Each script must be [idempotent](https://en.wikipedia.org/wiki/Idempotence), having no additional effect if it is called more than once with the same input parameters.
 - Each script must be able to run asynchronously.
 - Each script must fail gracefully.
@@ -63,7 +66,7 @@ The Medallion Architecture is being adopted for all future data pipelines.  It i
 
 > EG: If a silver script is run when no bronze object is present, the script should run with no errors and no results.
 
-- Each script must produce files locally, that must be checked before any cloud uploads take place.
+- Each script must produce files locally, that must be checked before any S3 writes take place.
 
 
 <br>
