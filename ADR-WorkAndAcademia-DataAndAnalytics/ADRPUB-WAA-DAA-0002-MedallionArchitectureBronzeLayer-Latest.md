@@ -35,12 +35,12 @@ Data & Analytics
 
 ---
 ## Context
-Although several definitions exist for Bronze data in the Medallion Architecture, they vary between organisation and set-up.  In addition these requirements can change over time.
+Although several definitions exist for Bronze data in the Medallion Architecture, they vary between organisation and setup and can change over time.
 
 <br>
 
 ## Decision
-I want to have a clear set of requirements for all bronze data objects I produce.
+In this ADR's Compliance section I will create a set of requirements for all Bronze data objects I produce.  
 
 ---
 ## Compliance
@@ -62,13 +62,17 @@ I want to have a clear set of requirements for all bronze data objects I produce
 """
 ```
 
+- The script's class must start with `MedallionBronze`:
+
+> EG: `class MedallionBronzeNifty()`
+
 - The script's class must relate to the data source:
 
 > EG: `class MedallionBronzeNifty()`
 
 > EG: """Class for transforming Raw Nifty CSV files to Bronze Nifty Parquet files."""
 
-- The source data must be in the Raw S3 bucket.  If the source data is being scraped from a website, a `_00_raw` script must be created prior to a `_01_bronze` script.  See **ADRPUB-WAA-DAA-0005**.
+- The source data must be in the Raw S3 bucket.  If the source data is coming from a website, a `_00_raw` script must be created prior to a `_01_bronze` script.  See **ADRPUB-WAA-DAA-0005**.
 - The source of the data must be included in a new column (if not already present).  This is to allow for data lineage.  The column must be called `source`.  
 
 > EG: `myfile.csv` or `www.data.com`.
