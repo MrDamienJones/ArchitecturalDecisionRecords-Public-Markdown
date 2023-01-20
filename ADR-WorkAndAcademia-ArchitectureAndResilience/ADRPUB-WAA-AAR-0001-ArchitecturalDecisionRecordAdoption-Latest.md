@@ -164,6 +164,7 @@ Each ADR will be written as follows:
 - Supporting Material
   - Resources to support ARD
   > **WEB:** Hyperlinks / Bookmark folder.
+
   > **LOCAL:** Filenames / Local folders / Books.
 
 <br>
@@ -193,4 +194,5 @@ None.
 - [Spotify: When Should I Write an Architecture Decision Record](https://engineering.atspotify.com/2020/04/when-should-i-write-an-architecture-decision-record/)
 
 **LOCAL:**
+
 None.
