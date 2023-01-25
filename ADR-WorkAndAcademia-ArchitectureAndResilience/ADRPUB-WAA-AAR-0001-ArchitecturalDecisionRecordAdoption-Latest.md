@@ -29,11 +29,15 @@ Architecture & Resilience
 <br>
 
 ## Dates
+- 2023-01-25: Moved time budgeting expectation to Compliance and added review requirement.  Added clarity to what an ADR should be marked as `Superseded`.
+
 - 2023-01-14: Final updates completed.  Status = Live.
 
 - 2023-01-07: Changed layout of **Compliance** and general top section.
 
 - 2023-01-06: Status = Dev.
+
+<br>
 
 ---
 ## Context
@@ -48,13 +52,17 @@ I have many past projects and pieces of work that I have made architectural deci
 ## Decision
 Architectural Decision Records will be used from 2023 onwards.  This will provide a framework for every decision and can be referenced in documentation, blog posts and other ADRs.
 
+<br>
+
 ---
 ## Compliance
 
 - ADRs to be written in and saved as Markdown.
 - ADRs to be saved with filename of **Reference** (see below).
 - ADRs to be spell checked before release.
-- ADRs with `Superseded` or `Retired` statuses must be moved from the repo/hot storage to cold storage.
+- ADRs with `Superseded` or `Retired` statuses must be moved from the repository/hot storage to cold storage.
+- Half a day should be budgeted per ADR to allow for brainstorming, reflection and review.
+- An ADR must not be written and reviewed on the same day.
 
 <br>
 
@@ -74,24 +82,28 @@ Each ADR will be written as follows:
   - Hyphen
   - ADR Version (**Latest**, or the date the ADR was superseded)
 
->EG: **ADRPUB-WAA-AAR-0001-Latest** - *Public ADR in Work & Academia basket with Architecture & Resilience category.  ADR number 1.  Latest version.*
-
->EG: **ADRPUB-WAA-AAR-0001-20230101** - *Public ADR in Work & Academia basket with Architecture & Resilience category.  ADR number 1.  Superseded on 01/01/2023.*
-
->EG: **ADRPUB-WAA-AAR-0002-Latest** - *Public ADR in Work & Academia basket with Architecture & Resilience category.  ADR number 2.  Latest version.*
-
->EG: **ADRPRI-LEI-MUS-0010-20221105** - *Private ADR in Leisure basket with Music category.  ADR number 10.  Superseeded on 05/11/2022.*
-
->EG: **ADRCON-CAF-UTI-0004-Retired** - *Confidential ADR in Core & Finance basket with Utility category.  ADR number 4.  Retired*
+> **EXAMPLES:**
+> 
+>> - **ADRPUB-WAA-AAR-0001-Latest** - *Public ADR in Work & Academia basket with Architecture & Resilience category.  ADR number 1.  Latest version.*
+>> 
+>> - **ADRPUB-WAA-AAR-0001-20230101** - *Public ADR in Work & Academia basket with Architecture & Resilience category.  ADR number 1.  Superseded on 01/01/2023.*
+>> 
+>>  - **ADRPUB-WAA-AAR-0002-Latest** - *Public ADR in Work & Academia basket with Architecture & Resilience category.  ADR number 2.  Latest version.*
+>> 
+>> - **ADRPRI-LEI-MUS-0010-20221105** - *Private ADR in Leisure basket with Music category.  ADR number 10.  Superseeded on 05/11/2022.*
+>> 
+>> - **ADRCON-CAF-UTI-0004-Retired** - *Confidential ADR in Core & Finance basket with Utility category.  ADR number 4.  Retired*
 
 <br>
 
 - **Title**
   - A short phrase describing the architectural decision.
 
->EG: **Architectural Decision Record Adoption**
-
->EG: **Medallion Architecture Adoption**
+> **EXAMPLES:**
+> 
+>> - Architectural Decision Record Adoption
+>>
+>> - Medallion Architecture Adoption
 
 <br>
 
@@ -111,7 +123,7 @@ Each ADR will be written as follows:
 <br>
 
 - Category the ADR rests in.  There is no list of these but commonalities will emerge over time. 
-> EG: **Utilities; Music; Data & Analytics.**
+> **EG:** Utilities; Music; Data & Analytics.
 
 <br>
 
@@ -119,7 +131,7 @@ Each ADR will be written as follows:
   - `Dev`: ADR is in development.
   - `Live`: ADR is Live.
   - `Paused`: ADR has been paused and is not currently active. 
-  - `Superseded`: ADR has been superseded by a newer version.  In **Filename**, `Latest` must be replaced with the date the ADR was superseded.
+  - `Superseded`: ADR has been superseded by a significantly newer version.  In **Filename**, `Latest` must be replaced with the date the ADR was superseded.
   - `Retired`: ADR has been retired with no new version.  In **Filename**, `Latest` must be replaced with `Retired`.
 > **Each status change must be recorded in `DATES`.**
 
@@ -178,12 +190,14 @@ Each ADR will be written as follows:
 <br>
 
 ## Consequences - Negative
-- Time will need to be made for each document.  Guidance suggests this should be no more than 60 minutes.
+- Time will need to be budgeted for each document.
 - Time will need to be spent verifying that each ADR meets the standards of this one.
 
 ---
 ## Notes
 None.
+
+<br>
 
 ## Supporting Material
 **WEB:**
@@ -194,5 +208,4 @@ None.
 - [Spotify: When Should I Write an Architecture Decision Record](https://engineering.atspotify.com/2020/04/when-should-i-write-an-architecture-decision-record/)
 
 **LOCAL:**
-
 None.

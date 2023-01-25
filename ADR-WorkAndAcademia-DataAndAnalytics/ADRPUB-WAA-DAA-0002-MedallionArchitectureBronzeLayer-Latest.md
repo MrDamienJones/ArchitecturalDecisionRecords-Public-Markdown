@@ -29,9 +29,13 @@ Data & Analytics
 <br>
 
 ## Dates
-2023-01-11: Status = Live.
+- 2023-01-25: Compliance: defined when work on a bronze script can begin.
 
-2023-01-06: Status = Dev.
+- 2023-01-11: Status = Live.
+
+- 2023-01-06: Status = Dev.
+
+<br>
 
 ---
 ## Context
@@ -45,7 +49,8 @@ In this ADR's Compliance section I will create a set of requirements for all Bro
 ---
 ## Compliance
 
-- The script's filename must end with `_01_bronze` to enforce ordering in folders and repos.
+- The script's filename must end with `_01_bronze` to enforce ordering in folders and repositories.
+- Work may only be started on a bronze script after a clear pathway from raw data to gold data has been defined and accepted.
 - The script must have an explanation:
 
 ```
@@ -64,24 +69,24 @@ In this ADR's Compliance section I will create a set of requirements for all Bro
 
 - The script's class must start with `MedallionBronze`:
 
-> EG: `class MedallionBronzeNifty()`
+> **EG:** `class MedallionBronzeNifty()`
 
 - The script's class must relate to the data source:
 
-> EG: `class MedallionBronzeNifty()`
+> **EG:** `class MedallionBronzeNifty()`
 
-> EG: """Class for transforming Raw Nifty CSV files to Bronze Nifty Parquet files."""
+> **EG:** """Class for transforming Raw Nifty CSV files to Bronze Nifty Parquet files."""
 
 - The source data must be in the Raw S3 bucket.  If the source data is coming from a website, a `_00_raw` script must be created prior to a `_01_bronze` script.  See **ADRPUB-WAA-DAA-0005**.
 - The source of the data must be included in a new column (if not already present).  This is to allow for data lineage.  The column must be called `source`.  
 
-> EG: `myfile.csv` or `www.data.com`.
+> **EG:** `myfile.csv` or `www.data.com`.
 
 - The date of the data's capture must be included in a new column (if not already present).  This is to allow for data lineage and partitioning.  The column must be called `capture_date`.  
 
-> EG: The date that an export file was produced.
+> **EG:** The date that an export file was produced.
 
-> EG: The date that a race took place.
+> **EG:** The date that a race took place.
 
 - The date of the data's bronze processing must be included in a new column.  This is to allow for data lineage and monitoring.  The column must be called `process_date_bronze`.
 - The script must end by saving a Parquet object in the Bronze S3 bucket.
@@ -101,9 +106,13 @@ In addition the **ADRPUB-WAA-DAA-0001** Compliance conditions must be met.
 - As each bronze script is the same and must not be coupled to anything, there will be lots of scripts around doing basically the same thing as each other.
 - If future Bronze requirements change, the existing scripts will require maintenance.  This could be a problem as numbers increase.
 
+<br>
+
 ---
 ## Notes
 None.
+
+<br>
 
 ## Supporting Material
 **WEB:**
